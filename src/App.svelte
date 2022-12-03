@@ -14,6 +14,7 @@
     grid = new Grid(n, m, numberOfMines);
     won = false;
     lost = false;
+    score = 0;
   }
   function loseGame() {
     grid.revealCells();
