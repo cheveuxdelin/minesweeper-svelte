@@ -38,14 +38,6 @@ export default class Grid {
         }
     }
 
-    revealCells() {
-        for (const row of this.cells) {
-            for (const cell of row) {
-                cell.isHidden = false;
-            }
-        }
-    }
-
     cellNeighbors(x: number, y: number): { x: number; y: number }[] {
         const arr = [];
         for (let ax = 0; ax < Grid.axis.length; ax++) {

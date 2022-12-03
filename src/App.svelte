@@ -16,12 +16,19 @@
     lost = false;
     score = 0;
   }
+  function revealCells() {
+    for (let x = 0; x < n; x++) {
+      for (let y = 0; y < m; y++) {
+        grid.cells[x][y].isHidden = false;
+      }
+    }
+  }
   function loseGame() {
-    grid.revealCells();
+    revealCells();
     lost = true;
   }
   function winGame() {
-    grid.revealCells();
+    revealCells();
     won = true;
   }
 
