@@ -1,12 +1,13 @@
 <script lang="ts">
   import Grid from "./models/grid";
   import Cell from "./components/Cell.svelte";
-  let n: number = 10;
-  let m: number = 10;
+  let n: number = 8;
+  let m: number = 8;
   let won: boolean = false;
   let lost: boolean = false;
-  let numberOfMines: number = 100;
+  let numberOfMines: number = 10;
   let numberOfUnclearedCells: number;
+  let score: number = 0;
   let grid: Grid;
 
   function restartGame() {
@@ -28,6 +29,7 @@
       loseGame();
     } else {
       grid.cells[x][y].isHidden = false;
+      score += 100;
       numberOfUnclearedCells--;
       if (numberOfUnclearedCells == numberOfMines) {
         winGame();
@@ -61,10 +63,11 @@
       </div>
     {/each}
   </div>
+  <p>Score: {score}</p>
   {#if won || lost}
     <p class={`${won ? "text-green-600" : "text-red-600"} text-3xl`}>
       {won ? "Win" : "Lost"}
     </p>
-    <p>press R to restart the game</p>
+    <p>press Spacebar to restart the game</p>
   {/if}
 </div>
